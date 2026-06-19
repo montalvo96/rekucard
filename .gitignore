@@ -1,0 +1,32 @@
+# Archivo: .gitignore
+# Descripción: Especifica los archivos y carpetas que Git debe ignorar en este proyecto.
+# Fecha de última modificación: 2026-06-19
+# Autor: Antigravity
+
+# Archivos del sistema operativo (macOS y Windows)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Configuraciones de editores e IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Archivos de logs y temporales
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos comprimidos redundantes (se mantienen los logos extraídos)
+brand/*.zip
+brand/reku.zip

@@ -1,0 +1,823 @@
+<!--
+  Archivo: index.html
+  Descripción: Estructura HTML de la nueva landing page premium de Reku, optimizada para SEO y conversiones. Contiene un simulador interactivo de tarjetas Wallet, comparativa de beneficios, planes de precios transparentes y acordeón de preguntas frecuentes.
+  Fecha de última modificación: 2026-06-03
+  Autor: Antigravity
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reku - Tarjetas de Lealtad Digitales para tu Negocio</title>
+    <meta name="description" content="Crea tu programa de lealtad digital en 10 minutos. Tarjetas de sellos y recompensas directamente en Apple Wallet y Google Pay de tus clientes, sin descargar aplicaciones.">
+    
+    <!-- SEO & Social Media Meta Tags -->
+    <meta property="og:title" content="Reku - Tarjetas de Lealtad Digitales en Apple Wallet & Google Pay">
+    <meta property="og:description" content="Fideliza a tus clientes sin fricciones. Tarjetas de lealtad directo al móvil, notificaciones push automatizadas y analíticas en tiempo real.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rekucard.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="brand/reku/FAVICON/reku-logo.png">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="header" id="main-header">
+        <div class="container header-container">
+            <a href="#" class="logo" id="header-logo">
+                <img src="brand/reku/LOGO MED/reku-logo-01.png" alt="Reku Logo" class="logo-img">
+            </a>
+            <nav class="nav" id="main-nav">
+                <a href="#como-funciona" class="nav-link" id="link-como-funciona">Cómo funciona</a>
+                <a href="#simulador" class="nav-link" id="link-simulador">Simulador</a>
+                <a href="#beneficios" class="nav-link" id="link-beneficios">Beneficios</a>
+                <a href="#precios" class="nav-link" id="link-precios">Precios</a>
+                <a href="#faq" class="nav-link" id="link-faq">FAQ</a>
+                <a href="https://app.rekucard.com/" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-login" id="link-nav-login">Iniciar Sesión</a>
+            </nav>
+            <div class="header-actions">
+                <a href="https://app.rekucard.com/" target="_blank" rel="noopener noreferrer" class="btn-login" id="btn-header-login">Iniciar Sesión</a>
+                <a href="https://api.leadconnectorhq.com/widget/booking/SB91q5vL8S4HTWBiVqYM" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" id="btn-header-demo">Agendar Demo</a>
+                <a href="#precios" class="btn btn-primary btn-sm" id="btn-header-start">Iniciar Gratis</a>
+            </div>
+            <button class="mobile-nav-toggle" id="btn-mobile-toggle" aria-label="Abrir menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="section-hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="badge" id="hero-badge">Aumenta hasta 2.5x la recompra</div>
+                    <h1 class="hero-title" id="hero-main-title">
+                        Clientes que regresan.<br>Tu negocio <span class="gradient-text">crece al doble.</span>
+                    </h1>
+                    <p class="hero-description" id="hero-main-description">
+                        Crea tu programa de lealtad digital en minutos. Tus clientes guardan su tarjeta de sellos directamente en <strong class="highlight">Apple Wallet y Google Pay</strong>. Sin instalar aplicaciones y sin tarjetas de cartón que se pierden.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#precios" class="btn btn-primary btn-lg" id="btn-hero-cta-start">Crear cuenta gratis</a>
+                        <a href="https://api.leadconnectorhq.com/widget/booking/SB91q5vL8S4HTWBiVqYM" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg" id="btn-hero-cta-demo">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            Agendar Demo
+                        </a>
+                    </div>
+                    <div class="hero-social-proof">
+                        <div class="avatars">
+                            <span class="avatar-dot">☕</span>
+                            <span class="avatar-dot">🍔</span>
+                            <span class="avatar-dot">💇</span>
+                            <span class="avatar-dot">🏋️</span>
+                        </div>
+                        <p class="social-proof-text">+500 negocios locales automatizando su fidelización en Latinoamérica.</p>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="phone-mockup-wrapper">
+                        <div class="phone-mockup" id="hero-phone-mockup">
+                            <div class="phone-screen">
+                                <!-- Wallet Card Mockup -->
+                                <div class="wallet-card card-preview-element" style="--card-color: #fb420a;">
+                                    <div class="card-header">
+                                        <div class="card-logo animate-pulse">
+                                            <img src="brand/reku/ISOTIPO/reku-logo-06.png" alt="Reku Isotipo" class="card-logo-img">
+                                            <span class="card-logo-text">Fika Coffee Shop</span>
+                                        </div>
+                                        <div class="card-points">
+                                            <span class="points-label">SELLOS</span>
+                                            <span class="points-value">6 / 10</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-holder">
+                                            <span class="holder-label">CLIENTE VIP</span>
+                                            <span class="holder-name">Carlos Mendoza</span>
+                                        </div>
+                                        <div class="card-coupon">
+                                            <span class="coupon-label">PRÓXIMO PREMIO</span>
+                                            <span class="coupon-value">Café Gratis</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-stamps">
+                                        <div class="stamp active">✓</div>
+                                        <div class="stamp active">✓</div>
+                                        <div class="stamp active">✓</div>
+                                        <div class="stamp active">✓</div>
+                                        <div class="stamp active">✓</div>
+                                        <div class="stamp active">✓</div>
+                                        <div class="stamp"></div>
+                                        <div class="stamp"></div>
+                                        <div class="stamp"></div>
+                                        <div class="stamp"></div>
+                                    </div>
+                                    <div class="card-footer-barcode">
+                                        <div class="barcode"></div>
+                                        <span class="barcode-number">REKU-8472-9201</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative background glow -->
+                    <div class="glow-effect glow-1"></div>
+                    <div class="glow-effect glow-2"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Simulator Section -->
+        <section class="simulator-section" id="simulador">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Diseña tu tarjeta <span class="gradient-text">en tiempo real</span></h2>
+                    <p class="section-subtitle">Mira lo fácil y rápido que es crear una experiencia premium que tus clientes llevarán siempre en su smartphone.</p>
+                </div>
+                
+                <div class="simulator-grid">
+                    <!-- Simulator Controls -->
+                    <div class="simulator-controls" id="sim-controls">
+                        <div class="control-group">
+                            <label for="input-shop-name" class="control-label">Nombre de tu Negocio</label>
+                            <input type="text" id="input-shop-name" class="form-control" value="Mi Cafetería Premium" placeholder="Escribe el nombre de tu marca">
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="input-reward-title" class="control-label">Recompensa / Premio</label>
+                            <input type="text" id="input-reward-title" class="form-control" value="Bebida Gratis" placeholder="Ej. Postre Gratis, 10% Descuento">
+                        </div>
+                        
+                        <div class="control-group">
+                            <label class="control-label">Esquema de Lealtad</label>
+                            <div class="radio-toggle-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="lealty-type" value="sellos" checked id="radio-type-sellos">
+                                    <span>Tarjeta de Sellos</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="lealty-type" value="cashback" id="radio-type-cashback">
+                                    <span>Cashback (Acumular %)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="control-group" id="control-stamps-count">
+                            <label for="select-stamps" class="control-label">Cantidad de Sellos</label>
+                            <select id="select-stamps" class="form-control">
+                                <option value="5">5 Sellos</option>
+                                <option value="8">8 Sellos</option>
+                                <option value="10" selected>10 Sellos</option>
+                                <option value="12">12 Sellos</option>
+                            </select>
+                        </div>
+                        
+                        <div class="control-group" id="control-cashback-percent" style="display: none;">
+                            <label for="input-cashback" class="control-label">% de Recompensa</label>
+                            <input type="number" id="input-cashback" class="form-control" value="5" min="1" max="100">
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Icono de la Tarjeta</label>
+                            <div class="icon-presets">
+                                <button type="button" class="btn-icon-preset active" data-icon="☕" id="icon-preset-1">☕</button>
+                                <button type="button" class="btn-icon-preset" data-icon="🍔" id="icon-preset-2">🍔</button>
+                                <button type="button" class="btn-icon-preset" data-icon="💇" id="icon-preset-3">💇</button>
+                                <button type="button" class="btn-icon-preset" data-icon="🏋️" id="icon-preset-4">🏋️</button>
+                                <button type="button" class="btn-icon-preset" data-icon="🛍️" id="icon-preset-5">🛍️</button>
+                                <button type="button" class="btn-icon-preset" data-icon="🍕" id="icon-preset-6">🍕</button>
+                                <button type="button" class="btn-icon-preset" data-icon="🏷️" id="icon-preset-7">🏷️</button>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Color de Fondo</label>
+                            <div class="color-presets">
+                                <button type="button" class="btn-color-preset active" style="background-color: #fb420a;" data-color="#fb420a" id="color-preset-1" aria-label="Naranja Reku"></button>
+                                                <button type="button" class="btn-color-preset" style="background-color: #1e3a8a;" data-color="#1e3a8a" id="color-preset-2" aria-label="Azul Oscuro"></button>
+                                                <button type="button" class="btn-color-preset" style="background-color: #064e3b;" data-color="#064e3b" id="color-preset-3" aria-label="Verde Esmeralda"></button>
+                                                <button type="button" class="btn-color-preset" style="background-color: #701a75;" data-color="#701a75" id="color-preset-4" aria-label="Púrpura"></button>
+                                                <button type="button" class="btn-color-preset" style="background-color: #111827;" data-color="#111827" id="color-preset-5" aria-label="Negro Mate"></button>
+                                                <div class="color-picker-wrapper">
+                                                    <input type="color" id="input-custom-color" value="#fb420a" aria-label="Color personalizado">
+                                                    <span>Personalizar</span>
+                                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Simulator Preview -->
+                    <div class="simulator-preview">
+                        <div class="phone-mockup preview-phone" id="sim-phone">
+                            <div class="phone-screen">
+                                <div class="wallet-card" id="sim-card" style="--card-color: #fb420a;">
+                                    <div class="card-header">
+                                        <div class="card-logo">
+                                            <span class="card-logo-icon" id="sim-card-icon">
+                                                <img src="brand/reku/ISOTIPO/reku-logo-06.png" alt="Reku Isotipo" class="card-logo-img">
+                                            </span>
+                                            <span class="card-logo-text" id="sim-card-shop">Mi Cafetería Premium</span>
+                                        </div>
+                                        <div class="card-points" id="sim-card-metric-container">
+                                            <span class="points-label" id="sim-card-metric-label">SELLOS</span>
+                                            <span class="points-value" id="sim-card-metric-val">4 / 10</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-holder">
+                                            <span class="holder-label">SOCIO DE LEALTAD</span>
+                                            <span class="holder-name">Sofía Rodríguez</span>
+                                        </div>
+                                        <div class="card-coupon" id="sim-card-coupon-container">
+                                            <span class="coupon-label">PRÓXIMA META</span>
+                                            <span class="coupon-value" id="sim-card-reward">Bebida Gratis</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Stamps Container inside the simulation -->
+                                    <div class="card-stamps" id="sim-stamps-grid">
+                                        <!-- Will be rendered via JS -->
+                                    </div>
+                                    
+                                    <!-- Cashback info shown if cashback mode is selected -->
+                                    <div class="card-cashback-info" id="sim-cashback-info" style="display: none;">
+                                        <div class="cashback-stat-row">
+                                            <div class="cashback-stat-box">
+                                                <span class="cashback-label">DINERO ACUMULADO</span>
+                                                <span class="cashback-value" id="sim-cashback-accumulated">$124.50 MXN</span>
+                                            </div>
+                                            <div class="cashback-stat-box">
+                                                <span class="cashback-label">TASA CASHBACK</span>
+                                                <span class="cashback-value" id="sim-cashback-rate">5%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer-barcode">
+                                        <div class="barcode"></div>
+                                        <span class="barcode-number">REKU-SIM-0000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="simulator-cta">
+                            <p class="simulator-cta-text">✨ ¿Te gusta cómo se ve? Crea el tuyo gratis ahora mismo.</p>
+                            <a href="#precios" class="btn btn-primary" id="btn-sim-start">Empezar a Diseñar Gratis</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pain vs Solution (The traditional problem vs Reku) -->
+        <section class="comparison-section" id="beneficios">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-category">El antes y el después</span>
+                    <h2 class="section-title">El fin de las tarjetas de cartón</h2>
+                    <p class="section-subtitle">Por qué las tarjetas de papel son del siglo pasado y cómo Reku automatiza tus ventas sin esfuerzo.</p>
+                </div>
+                
+                <div class="comparison-grid">
+                    <!-- The Pain Card -->
+                    <div class="comparison-card pain-card">
+                        <div class="comparison-card-header">
+                            <div class="comparison-icon icon-pain">✕</div>
+                            <h3>El método tradicional</h3>
+                            <p class="comparison-sub">Tarjetas de papel / cartón</p>
+                        </div>
+                        <ul class="comparison-list">
+                            <li>
+                                <strong>Se pierden u olvidan:</strong> 9 de cada 10 clientes pierden la tarjeta de cartón antes de completarla.
+                            </li>
+                            <li>
+                                <strong>Cero contacto posterior:</strong> No tienes forma de comunicarte con el cliente una vez sale del local.
+                            </li>
+                            <li>
+                                <strong>Ceguera de datos:</strong> No sabes quién te visita, con qué frecuencia, ni qué promociones funcionan.
+                            </li>
+                            <li>
+                                <strong>Gasto recurrente:</strong> Costo constante de diseño, impresión y reimpresión de papelería.
+                            </li>
+                            <li>
+                                <strong>Vulnerable a fraudes:</strong> Cualquier persona puede imitar un sello o firma física con facilidad.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- The Solution Card -->
+                    <div class="comparison-card solution-card">
+                        <div class="comparison-card-header">
+                            <div class="comparison-icon icon-solution">✓</div>
+                            <h3>El método Reku</h3>
+                            <p class="comparison-sub">Tarjetas 100% digitales e inteligentes</p>
+                        </div>
+                        <ul class="comparison-list">
+                            <li>
+                                <strong>Siempre en el celular:</strong> Integradas de forma nativa en Apple Wallet y Google Pay. Imposibles de perder.
+                            </li>
+                            <li>
+                                <strong>Notificaciones Push Gratis:</strong> Envía recordatorios directamente a su pantalla de bloqueo sin costo de SMS.
+                            </li>
+                            <li>
+                                <strong>Datos del cliente en tiempo real:</strong> Base de datos de clientes automatizada con historial de visitas y compras.
+                            </li>
+                            <li>
+                                <strong>Un solo pago recurrente:</strong> Retorno de inversión claro. Cero desperdicio de papel o plástico.
+                            </li>
+                            <li>
+                                <strong>Seguridad encriptada:</strong> Cada visita y sello se valida de manera única mediante QR seguro encriptado.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works" id="como-funciona">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-category">Simplicidad total</span>
+                    <h2 class="section-title">En marcha en solo <span class="gradient-text">3 simples pasos</span></h2>
+                    <p class="section-subtitle">No requieres software POS complejo, tablets adicionales, ni hardware costoso. Todo funciona con lo que ya tienes.</p>
+                </div>
+                
+                <div class="steps-grid">
+                    <div class="step-card" id="step-1">
+                        <div class="step-num">1</div>
+                        <h3>El cliente escanea el QR</h3>
+                        <p>Colocas un portarretrato con un código QR único en tu caja o mesa. Tu cliente lo escanea con la cámara de su celular al pagar.</p>
+                        <div class="step-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="7" y="7" width="3" height="3"></rect><rect x="14" y="7" width="3" height="3"></rect><rect x="7" y="14" width="3" height="3"></rect><path d="M14 14h3v3h-3z"></path></svg>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card" id="step-2">
+                        <div class="step-num">2</div>
+                        <h3>Se añade al Wallet</h3>
+                        <p>La tarjeta se agrega a Apple Wallet o Google Pay automáticamente con un solo clic. El cliente ya está registrado en tu programa.</p>
+                        <div class="step-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><path d="M7 15h.01M11 15h2"></path></svg>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card" id="step-3">
+                        <div class="step-num">3</div>
+                        <h3>Regresan en piloto automático</h3>
+                        <p>El sistema detecta si un cliente lleva tiempo sin visitarte y le envía notificaciones push personalizadas para incentivar su regreso.</p>
+                        <div class="step-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industry Vertical Tabs Section -->
+        <section class="industries-section" id="industrias">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-category">Hecho para tu negocio</span>
+                    <h2 class="section-title">Estrategias diseñadas para tu sector</h2>
+                    <p class="section-subtitle">Adaptamos las reglas del juego de fidelización a los hábitos de consumo de tus clientes.</p>
+                </div>
+                
+                <!-- Industry Tabs Navigation -->
+                <div class="tabs-nav" id="industries-tabs">
+                    <button class="tab-btn active" data-tab="tab-cafeterias" id="btn-tab-cafeterias">☕ Cafeterías</button>
+                    <button class="tab-btn" data-tab="tab-restaurantes" id="btn-tab-restaurantes">🍔 Restaurantes</button>
+                    <button class="tab-btn" data-tab="tab-belleza" id="btn-tab-belleza">💇 Estética y Barberías</button>
+                    <button class="tab-btn" data-tab="tab-gimnasios" id="btn-tab-gimnasios">🏋️ Gimnasios</button>
+                    <button class="tab-btn" data-tab="tab-retail" id="btn-tab-retail">🛍️ Tiendas de Retail</button>
+                </div>
+                
+                <!-- Industry Tabs Content -->
+                <div class="tabs-content-wrapper">
+                    <!-- Cafeterías Content -->
+                    <div class="tab-pane active" id="tab-cafeterias">
+                        <div class="tab-pane-grid">
+                            <div class="tab-text">
+                                <h3>Impulsa el hábito diario del café</h3>
+                                <p class="tab-paragraph">El café es un producto de alta frecuencia. Reku te ayuda a asegurar que el cliente compre su café matutino contigo y no con la competencia de al lado.</p>
+                                <ul class="tab-bullet-list">
+                                    <li><strong>Estrategia recomendada:</strong> Tarjeta de sellos (ej. 9 sellos, el 10º café es gratis).</li>
+                                    <li><strong>Notificación Push Automática:</strong> "Café recién hecho. Te regalamos un pan dulce si nos visitas hoy antes de las 11:00 am".</li>
+                                    <li><strong>Impacto:</strong> Aumento del ticket promedio mediante la venta cruzada de alimentos.</li>
+                                </ul>
+                            </div>
+                            <div class="tab-visual-demo">
+                                <div class="visual-card-wrap">
+                                    <div class="wallet-card mini-card" style="--card-color: #8b5a2b;">
+                                        <div class="card-header">
+                                            <span class="card-logo-text">☕ Coffee Lab</span>
+                                            <span class="points-value">8 / 9</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <span class="coupon-value">¡Falta 1 sello para tu regalo!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Restaurantes Content -->
+                    <div class="tab-pane" id="tab-restaurantes">
+                        <div class="tab-pane-grid">
+                            <div class="tab-text">
+                                <h3>Aumenta las visitas en días de baja afluencia</h3>
+                                <p class="tab-paragraph">Atrae comensales los martes y miércoles con promociones dinámicas directo a la pantalla de bloqueo de sus celulares.</p>
+                                <ul class="tab-bullet-list">
+                                    <li><strong>Estrategia recomendada:</strong> Cashback acumulable en compras superiores a $200 MXN para consumo futuro.</li>
+                                    <li><strong>Notificación Push Automática:</strong> "¡Martes de 2x1 en hamburguesas! Válido presentando tu tarjeta Reku Wallet".</li>
+                                    <li><strong>Impacto:</strong> Reducción de mesas vacías a mitad de semana y clientes más fieles.</li>
+                                </ul>
+                            </div>
+                            <div class="tab-visual-demo">
+                                <div class="visual-card-wrap">
+                                    <div class="wallet-card mini-card" style="--card-color: #b91c1c;">
+                                        <div class="card-header">
+                                            <span class="card-logo-text">🍔 Grill House</span>
+                                            <span class="points-value">$75.00 MXN</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <span class="coupon-value">Balance de Recompensas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estética Content -->
+                    <div class="tab-pane" id="tab-belleza">
+                        <div class="tab-pane-grid">
+                            <div class="tab-text">
+                                <h3>Fideliza los servicios recurrentes de cuidado personal</h3>
+                                <p class="tab-paragraph">Los clientes de barberías o salones de belleza tienen ciclos fijos de 15 a 30 días. Reku les recuerda que es hora de agendar su siguiente cita.</p>
+                                <ul class="tab-bullet-list">
+                                    <li><strong>Estrategia recomendada:</strong> Descuento progresivo o tratamiento complementario gratis en la 5ª visita.</li>
+                                    <li><strong>Notificación Push Automática:</strong> "¿Ya es hora de un corte? Agenda hoy y acumula doble sello en tu tarjeta digital".</li>
+                                    <li><strong>Impacto:</strong> Asegura que los clientes no extiendan sus tiempos de visita y mantengan un ciclo de consumo regular.</li>
+                                </ul>
+                            </div>
+                            <div class="tab-visual-demo">
+                                <div class="visual-card-wrap">
+                                    <div class="wallet-card mini-card" style="--card-color: #4c1d95;">
+                                        <div class="card-header">
+                                            <span class="card-logo-text">💇 Glam Salon</span>
+                                            <span class="points-value">3 / 5</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <span class="coupon-value">Siguiente: Mascarilla Gratis</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gimnasios Content -->
+                    <div class="tab-pane" id="tab-gimnasios">
+                        <div class="tab-pane-grid">
+                            <div class="tab-text">
+                                <h3>Incentiva la constancia de tus socios</h3>
+                                <p class="tab-paragraph">La consistencia es clave para retener miembros en los gimnasios. Premia las visitas semanales y evita la deserción de cuotas mensuales.</p>
+                                <ul class="tab-bullet-list">
+                                    <li><strong>Estrategia recomendada:</strong> Tarjeta de check-ins mensuales con recompensas en suplementos o merch.</li>
+                                    <li><strong>Notificación Push Automática:</strong> "¡Llevas 3 entrenamientos esta semana! Sigue así y reclama tu bebida isotónica".</li>
+                                    <li><strong>Impacto:</strong> Clientes más activos, motivados y con tasas de renovación de membresía significativamente más altas.</li>
+                                </ul>
+                            </div>
+                            <div class="tab-visual-demo">
+                                <div class="visual-card-wrap">
+                                    <div class="wallet-card mini-card" style="--card-color: #065f46;">
+                                        <div class="card-header">
+                                            <span class="card-logo-text">🏋️ Alpha Gym</span>
+                                            <span class="points-value">12 / 15</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <span class="coupon-value">Meta: Shaker Proteína</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Retail Content -->
+                    <div class="tab-pane" id="tab-retail">
+                        <div class="tab-pane-grid">
+                            <div class="tab-text">
+                                <h3>Compite contra los gigantes con tu propio club VIP</h3>
+                                <p class="tab-paragraph">Permite a tus clientes coleccionar beneficios y recibir promociones de lanzamientos de productos de manera directa.</p>
+                                <ul class="tab-bullet-list">
+                                    <li><strong>Estrategia recomendada:</strong> Niveles de membresía VIP con descuentos exclusivos integrados.</li>
+                                    <li><strong>Notificación Push Automática:</strong> "Novedades de temporada. Acceso exclusivo para miembros VIP hoy de 4pm a 8pm".</li>
+                                    <li><strong>Impacto:</strong> Incremento en la recompra de colecciones y sentido de pertenencia a un club exclusivo.</li>
+                                </ul>
+                            </div>
+                            <div class="tab-visual-demo">
+                                <div class="visual-card-wrap">
+                                    <div class="wallet-card mini-card" style="--card-color: #0f172a;">
+                                        <div class="card-header">
+                                            <span class="card-logo-text">🛍️ Boho Boutique</span>
+                                            <span class="points-value">VIP ORO</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <span class="coupon-value">15% Descuento en Tienda</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing-section" id="precios">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-category">Planes y Precios</span>
+                    <h2 class="section-title">Elige el plan ideal para tu negocio</h2>
+                    <p class="section-subtitle">Pruébalo gratis durante 14 días sin ingresar tarjeta de crédito. Cancela cuando quieras.</p>
+                    
+                    <!-- Billing Toggle Switch -->
+                    <div class="billing-toggle">
+                        <span class="billing-label text-muted" id="label-billing-monthly">Mensual</span>
+                        <button class="toggle-switch" id="btn-billing-toggle" aria-label="Cambiar a facturación anual" aria-checked="false" role="switch">
+                            <span class="toggle-handler"></span>
+                        </button>
+                        <span class="billing-label" id="label-billing-yearly">Anual <span class="discount-badge">Ahorra 20%</span></span>
+                    </div>
+                </div>
+                
+                <div class="pricing-grid">
+                    <!-- Starter Plan -->
+                    <div class="pricing-card" id="pricing-card-starter">
+                        <div class="pricing-card-header">
+                            <h3>Starter</h3>
+                            <p class="pricing-desc">Perfecto para negocios locales que inician su primer programa digital.</p>
+                            <div class="price-container">
+                                <span class="currency">$</span>
+                                <span class="price-value" id="price-starter">299</span>
+                                <span class="period" id="period-starter">/mes</span>
+                            </div>
+                            <span class="price-yearly-sub text-muted" id="sub-starter">Facturado mensualmente</span>
+                        </div>
+                        <div class="pricing-card-body">
+                            <ul class="pricing-features">
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Hasta 150 clientes registrados
+                                </li>
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    1 Sucursal
+                                </li>
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Diseño de tarjeta personalizado
+                                </li>
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    QR de auto-registro en PDF
+                                </li>
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Soporte por correo electrónico
+                                </li>
+                            </ul>
+                            <a href="https://api.leadconnectorhq.com/widget/booking/SB91q5vL8S4HTWBiVqYM" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-block" id="btn-pricing-starter">Iniciar Prueba Gratis</a>
+                        </div>
+                    </div>
+
+                    <!-- Growth Plan (Popular) -->
+                    <div class="pricing-card popular" id="pricing-card-growth">
+                        <div class="popular-badge">EL MÁS POPULAR</div>
+                        <div class="pricing-card-header">
+                            <h3>Growth</h3>
+                            <p class="pricing-desc">Para negocios en crecimiento que quieren automatizar su retención.</p>
+                            <div class="price-container">
+                                <span class="currency">$</span>
+                                <span class="price-value" id="price-growth">599</span>
+                                <span class="period" id="period-growth">/mes</span>
+                            </div>
+                            <span class="price-yearly-sub text-muted" id="sub-growth">Facturado mensualmente</span>
+                        </div>
+                        <div class="pricing-card-body">
+                            <ul class="pricing-features">
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <strong>Clientes ilimitados</strong>
+                                </li>
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Hasta 3 sucursales
+                                </li>
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <strong>Notificaciones Push ilimitadas</strong>
+                                </li>
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Dashboard de analíticas en tiempo real
+                                </li>
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Notificaciones de proximidad (GPS)
+                                </li>
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Soporte prioritario por WhatsApp
+                                </li>
+                            </ul>
+                            <a href="https://api.leadconnectorhq.com/widget/booking/SB91q5vL8S4HTWBiVqYM" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" id="btn-pricing-growth">Iniciar Prueba Gratis</a>
+                        </div>
+                    </div>
+
+                    <!-- Enterprise Plan -->
+                    <div class="pricing-card" id="pricing-card-enterprise">
+                        <div class="pricing-card-header">
+                            <h3>Enterprise</h3>
+                            <p class="pricing-desc">Para franquicias o marcas con múltiples sucursales e integraciones POS.</p>
+                            <div class="price-container">
+                                <span class="price-custom">A Medida</span>
+                            </div>
+                            <span class="price-yearly-sub text-muted" id="sub-enterprise">Cotización personalizada</span>
+                        </div>
+                        <div class="pricing-card-body">
+                            <ul class="pricing-features">
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Sucursales ilimitadas
+                                </li>
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Integración directa con tu sistema POS/Caja
+                                </li>
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    API para desarrolladores
+                                </li>
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Gerente de cuenta exclusivo
+                                </li>
+                                <li>
+                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Contrato y facturación formal local
+                                </li>
+                            </ul>
+                            <a href="https://api.leadconnectorhq.com/widget/booking/SB91q5vL8S4HTWBiVqYM" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-block" id="btn-pricing-enterprise">Agendar Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-category">Preguntas Frecuentes</span>
+                    <h2 class="section-title">Resuelve tus dudas</h2>
+                    <p class="section-subtitle">¿Tienes preguntas sobre el funcionamiento de las tarjetas Wallet? Aquí las resolvemos.</p>
+                </div>
+                
+                <div class="faq-accordion-container">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item" id="faq-item-1">
+                        <button class="faq-question" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">
+                            ¿Mis clientes tienen que descargar alguna app adicional?
+                            <span class="faq-icon-indicator">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-a-1" style="display: none;">
+                            <p>No. Esa es la gran ventaja de Reku. Las tarjetas de lealtad se guardan directamente en Apple Wallet (iOS) o Google Pay (Android), que son aplicaciones nativas preinstaladas en prácticamente el 100% de los teléfonos inteligentes del mercado.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item" id="faq-item-2">
+                        <button class="faq-question" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">
+                            ¿Cómo registro las visitas o asigno sellos a los clientes?
+                            <span class="faq-icon-indicator">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-a-2" style="display: none;">
+                            <p>Es extremadamente sencillo. Tu cajero o personal escanea el código QR de la tarjeta digital del cliente utilizando la cámara de cualquier teléfono móvil (con nuestra aplicación web segura para personal). No necesitas lectores especiales ni hardware adicional.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item" id="faq-item-3">
+                        <button class="faq-question" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">
+                            ¿Las notificaciones push son ilimitadas? ¿Tiene algún costo extra?
+                            <span class="faq-icon-indicator">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-a-3" style="display: none;">
+                            <p>En nuestro plan Growth las notificaciones push son ilimitadas y gratuitas. A diferencia del SMS tradicional o WhatsApp Business, el sistema Wallet permite enviar notificaciones directas a la pantalla del cliente sin pagarle nada a los operadores telefónicos.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item" id="faq-item-4">
+                        <button class="faq-question" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">
+                            ¿Puedo importar mi base de datos de clientes actual?
+                            <span class="faq-icon-indicator">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-a-4" style="display: none;">
+                            <p>Sí, por supuesto. Nuestro equipo técnico te ayuda a importar tu lista existente de correos o números de teléfono para generarles de manera automática sus nuevas tarjetas Wallet personalizadas a tus clientes.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item" id="faq-item-5">
+                        <button class="faq-question" id="faq-q-5" aria-expanded="false" aria-controls="faq-a-5">
+                            ¿Hay algún contrato de permanencia forzosa?
+                            <span class="faq-icon-indicator">+</span>
+                        </button>
+                        <div class="faq-answer" id="faq-a-5" style="display: none;">
+                            <p>No. Nuestros planes son de suscripción mensual o anual recurrente y puedes cancelar tu servicio en el momento que lo desees sin ningún tipo de penalización o letra pequeña.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta" id="cta-final">
+            <div class="container text-center">
+                <h2 class="cta-title">Empieza a fidelizar hoy mismo</h2>
+                <p class="cta-subtitle">Únete a la nueva era digital, mejora la retención de tus clientes y mira tus ingresos subir.</p>
+                <div class="cta-actions">
+                    <a href="#precios" class="btn btn-primary btn-lg" id="btn-final-cta-start">Crear cuenta gratis</a>
+                    <a href="https://api.leadconnectorhq.com/widget/booking/SB91q5vL8S4HTWBiVqYM" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white btn-lg" id="btn-final-cta-demo">Agendar Demo</a>
+                </div>
+                <p class="cta-note text-muted">14 días gratis. No requiere tarjeta de crédito.</p>
+            </div>
+            <div class="glow-effect glow-cta"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo footer-logo">
+                    <img src="brand/reku/LOGO MED/reku-logo-01.png" alt="Reku Logo" class="logo-img">
+                </a>
+                <p class="footer-desc">
+                    Fidelización digital inteligente para negocios físicos y locales. Modernizando la relación entre marcas y clientes.
+                </p>
+                <p class="footer-copy">&copy; 2026 Reku. Todos los derechos reservados.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Producto</h4>
+                <a href="#como-funciona">Cómo funciona</a>
+                <a href="#simulador">Simulador en vivo</a>
+                <a href="#beneficios">Beneficios</a>
+                <a href="#precios">Precios</a>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Empresa</h4>
+                <a href="https://api.leadconnectorhq.com/widget/booking/SB91q5vL8S4HTWBiVqYM" target="_blank" rel="noopener noreferrer">Contacto</a>
+                <a href="#">Términos de servicio</a>
+                <a href="#">Privacidad</a>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h4>Newsletter de Crecimiento</h4>
+                <p>Consejos semanales de lealtad y marketing para tu negocio local.</p>
+                <form class="newsletter-form" id="form-newsletter" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
+                    <input type="email" placeholder="Tu correo electrónico" class="form-control" required id="input-newsletter-email">
+                    <button type="submit" class="btn btn-primary" id="btn-newsletter-submit">Suscribir</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
