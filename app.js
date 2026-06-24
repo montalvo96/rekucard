@@ -42,6 +42,8 @@ function initMobileNav() {
                 header.classList.remove('nav-open');
                 toggleBtn.setAttribute('aria-expanded', 'false');
             });
+        });
+    }
 }
 
 /* ==========================================================================

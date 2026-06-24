@@ -294,3 +294,101 @@
         display: none;
     }
 }
+
+/* ==========================================================================
+   MEJORAS ESTÉTICAS: BOTONES MÁS LLAMATIVOS Y EFECTOS WOW
+   ========================================================================== */
+
+/* Fondo del selector segmentado con gradiente premium y sombra neon */
+.selector-bg {
+    background: linear-gradient(135deg, #fb420a 0%, #ff6a00 100%) !important;
+    box-shadow: 0 4px 14px rgba(251, 66, 10, 0.45) !important;
+}
+
+/* Efecto de texto brillante en la opción activa */
+.billing-opt.active {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Efecto Shimmer de Brillo Metálico para el botón del plan Grow (Vibrante y Llamativo) */
+.pricing-card.popular .btn-primary {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fb420a 0%, #ff6a00 100%) !important;
+    border: none !important;
+    box-shadow: 0 6px 20px rgba(251, 66, 10, 0.4) !important;
+    transition: transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease !important;
+}
+
+.pricing-card.popular .btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(251, 66, 10, 0.6) !important;
+}
+
+/* Elemento del brillo shimmer */
+.pricing-card.popular .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: linear-gradient(
+        to right, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.3) 30%, 
+        rgba(255, 255, 255, 0.8) 50%, 
+        rgba(255, 255, 255, 0.3) 70%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: button-shimmer 4s infinite ease-in-out;
+}
+
+@keyframes button-shimmer {
+    0% {
+        left: -60%;
+    }
+    15% {
+        left: 140%;
+    }
+    100% {
+        left: 140%;
+    }
+}
+
+/* Efecto Relleno Fluido y Sombra en Hover para los botones outline (Starter y Business) */
+.pricing-card:not(.popular) .btn-outline {
+    border: 2px solid var(--glass-border) !important;
+    background: transparent !important;
+    color: var(--color-text-light) !important;
+    position: relative !important;
+    z-index: 1 !important;
+    overflow: hidden !important;
+    transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease !important;
+}
+
+.pricing-card:not(.popular) .btn-outline::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(135deg, rgba(251, 66, 10, 0.1) 0%, rgba(255, 106, 0, 0.15) 100%) !important;
+    border-radius: inherit !important;
+    z-index: -1 !important;
+    transform: scaleX(0) !important;
+    transform-origin: left !important;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.pricing-card:not(.popular) .btn-outline:hover {
+    border-color: var(--color-primary) !important;
+    color: #ffffff !important;
+}
+
+.pricing-card:not(.popular) .btn-outline:hover::before {
+    transform: scaleX(1) !important;
+}
