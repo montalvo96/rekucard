@@ -1,0 +1,330 @@
+/*
+  Archivo: carousel.css
+  Descripción: Estilos premium, responsivos y con animaciones para el carrusel de tipos de tarjetas de lealtad (Sellos, Cashback, Puntos, Descuento, Membresía, Cupón) en Reku.
+  Fecha de última modificación: 2026-06-23
+  Autor: Antigravity
+*/
+
+.cards-carousel-section {
+    padding: 100px 0;
+    background-color: var(--color-dark-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+/* Tarjeta individual del carrusel */
+.carousel-card {
+    flex: 0 0 calc(33.333% - 20px);
+    background-color: var(--color-dark-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(251, 66, 10, 0.3);
+    box-shadow: 0 15px 35px rgba(251, 66, 10, 0.1);
+}
+
+/* Mockup visual de la tarjeta Wallet digital */
+.carousel-wallet-card {
+    width: 100%;
+    max-width: 220px;
+    height: 140px;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Efecto de cristal / brillo sobre la tarjeta */
+.carousel-wallet-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 60%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Gradientes específicos para cada tipo de tarjeta */
+.wallet-card-stamps {
+    background: linear-gradient(135deg, #fb420a 0%, #ff7a00 100%);
+    box-shadow: 0 8px 25px rgba(251, 66, 10, 0.35);
+}
+
+.wallet-card-cashback {
+    background: linear-gradient(135deg, #155eef 0%, #0086ff 100%);
+    box-shadow: 0 8px 25px rgba(21, 94, 239, 0.35);
+}
+
+.wallet-card-points {
+    background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.35);
+}
+
+.wallet-card-discount {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    box-shadow: 0 8px 25px rgba(5, 150, 105, 0.35);
+}
+
+.wallet-card-membership {
+    background: linear-gradient(135deg, #111827 0%, #374151 100%);
+    box-shadow: 0 8px 25px rgba(17, 24, 39, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wallet-card-coupon {
+    background: linear-gradient(135deg, #db2777 0%, #f472b6 100%);
+    box-shadow: 0 8px 25px rgba(219, 39, 119, 0.35);
+}
+
+/* Elementos internos de la mini-tarjeta Wallet */
+.mini-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+.mini-card-logo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.mini-card-logo-icon {
+    font-size: 0.9rem;
+}
+
+.mini-card-val {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+}
+
+.mini-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.mini-card-title {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 2px;
+    letter-spacing: -0.2px;
+}
+
+.mini-card-subtitle {
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
+.mini-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.mini-card-barcode {
+    width: 65px;
+    height: 18px;
+    background: #ffffff;
+    border-radius: 2px;
+    position: relative;
+}
+
+/* Simular barras de código */
+.mini-card-barcode::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        #000,
+        #000 1px,
+        #fff 1px,
+        #fff 3px
+    );
+}
+
+.mini-card-brand {
+    font-size: 0.55rem;
+    font-weight: 600;
+    opacity: 0.7;
+    letter-spacing: 0.5px;
+}
+
+/* Info del Tipo de Tarjeta */
+.card-type-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text-light);
+    margin-bottom: 12px;
+}
+
+.card-type-desc {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    min-height: 68px;
+}
+
+.card-type-divider {
+    width: 40px;
+    height: 2px;
+    background-color: var(--color-primary);
+    margin-bottom: 16px;
+    border: none;
+}
+
+.card-type-recommendation {
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Botones de navegación del carrusel */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    background: rgba(25, 25, 26, 0.8);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all var(--transition-fast);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    outline: none;
+}
+
+.carousel-btn:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #ffffff;
+    box-shadow: 0 4px 12px var(--color-primary-glow);
+}
+
+.carousel-btn.prev {
+    left: -15px;
+}
+
+.carousel-btn.next {
+    right: -15px;
+}
+
+.carousel-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Indicadores de Dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    outline: none;
+    padding: 0;
+}
+
+.carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.30);
+}
+
+.carousel-dot.active {
+    background: var(--color-primary);
+    width: 28px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--color-primary-glow);
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+    .carousel-card {
+        flex: 0 0 calc(50% - 15px);
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        padding: 0 20px;
+    }
+    
+    .carousel-card {
+        flex: 0 0 100%;
+        padding: 24px;
+    }
+    
+    .carousel-btn {
+        display: none;
+    }
+}

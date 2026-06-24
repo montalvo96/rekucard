@@ -5,17 +5,23 @@
   Autor: Antigravity
 */
 
-// Carga dinámica de la hoja de estilos pricing.css
+// Carga dinámica de la hoja de estilos pricing.css y carousel.css
 const pricingStyleLink = document.createElement('link');
 pricingStyleLink.rel = 'stylesheet';
 pricingStyleLink.href = 'pricing.css';
 document.head.appendChild(pricingStyleLink);
+
+const carouselStyleLink = document.createElement('link');
+carouselStyleLink.rel = 'stylesheet';
+carouselStyleLink.href = 'carousel.css';
+document.head.appendChild(carouselStyleLink);
 
 document.addEventListener('DOMContentLoaded', () => {
     initMobileNav();
     initHeroTilt();
     initSimulator();
     initPricingSelector();
+    initCardsCarousel();
     initIndustryTabs();
     initFaqAccordion();
     initScrollReveal();
@@ -402,4 +408,112 @@ function initScrollReveal() {
     itemsToReveal.forEach(item => {
         observer.observe(item);
     });
+}
+
+
+/* ==========================================================================
+   8. CARRUSEL INTERACTIVO DE TIPOS DE TARJETAS (MISMO LASSO)
+   ========================================================================== */
+function initCardsCarousel() {
+    const track = document.getElementById('carousel-track-cards');
+    const cards = document.querySelectorAll('.carousel-card');
+    const btnPrev = document.getElementById('btn-carousel-prev');
+    const btnNext = document.getElementById('btn-carousel-next');
+    const dotsContainer = document.getElementById('carousel-dots-cards');
+
+    if (!track || cards.length === 0) return;
+
+    let currentIndex = 0;
+    let cardsPerView = getCardsPerView();
+
+    function getCardsPerView() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3;
+    }
+
+    function renderDots() {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        const viewsCount = Math.max(1, cards.length - cardsPerView + 1);
+        for (let i = 0; i < viewsCount; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+            dot.setAttribute('aria-label', `Ir a la diapositiva ${i + 1}`);
+            dot.addEventListener('click', () => {
+                goToSlide(i);
+            });
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateCarousel() {
+        cardsPerView = getCardsPerView();
+        const viewsCount = Math.max(1, cards.length - cardsPerView + 1);
+        
+        // Ajustar el índice si excede los límites por cambio de tamaño de pantalla
+        if (currentIndex >= viewsCount) {
+            currentIndex = viewsCount - 1;
+        }
+
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const gap = 30; // Correspondiente al gap del CSS
+        const offset = currentIndex * (cardWidth + gap);
+        
+        track.style.transform = `translateX(-${offset}px)`;
+
+        // Habilitar/Deshabilitar botones
+        if (btnPrev) btnPrev.disabled = currentIndex === 0;
+        if (btnNext) btnNext.disabled = currentIndex >= viewsCount - 1;
+
+        // Actualizar dots
+        if (dotsContainer) {
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, idx) => {
+                if (idx === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+    }
+
+    if (btnPrev) {
+        btnPrev.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+    }
+
+    if (btnNext) {
+        btnNext.addEventListener('click', () => {
+            const viewsCount = Math.max(1, cards.length - cardsPerView + 1);
+            if (currentIndex < viewsCount - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+    }
+
+    // Escuchar el cambio de tamaño de la ventana
+    window.addEventListener('resize', () => {
+        const oldCardsPerView = cardsPerView;
+        cardsPerView = getCardsPerView();
+        if (oldCardsPerView !== cardsPerView) {
+            renderDots();
+        }
+        updateCarousel();
+    });
+
+    // Inicializar carrusel
+    renderDots();
+    updateCarousel();
 }
