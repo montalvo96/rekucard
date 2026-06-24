@@ -291,7 +291,7 @@
                 <div class="section-header text-center">
                     <span class="section-category">El antes y el después</span>
                     <h2 class="section-title">El fin de las tarjetas de cartón</h2>
-                    <p class="section-subtitle">Por qué las tarjetas de papel son del siglo pasado y cómo Reku automatiza tus ventas sin esfuerzo.</p>
+                    <p class="section-subtitle">Por qué las tarjetas de papel son del pasado y cómo Reku automatiza tus ventas sin esfuerzo.</p>
                 </div>
                 
                 <div class="comparison-grid">
@@ -561,13 +561,18 @@
                     <h2 class="section-title">Elige el plan ideal para tu negocio</h2>
                     <p class="section-subtitle">Pruébalo gratis durante 14 días sin ingresar tarjeta de crédito. Cancela cuando quieras.</p>
                     
-                    <!-- Billing Toggle Switch -->
-                    <div class="billing-toggle">
-                        <span class="billing-label text-muted" id="label-billing-monthly">Mensual</span>
-                        <button class="toggle-switch" id="btn-billing-toggle" aria-label="Cambiar a facturación anual" aria-checked="false" role="switch">
-                            <span class="toggle-handler"></span>
-                        </button>
-                        <span class="billing-label" id="label-billing-yearly">Anual <span class="discount-badge">Ahorra 20%</span></span>
+                    <!-- New Premium Segmented Billing Selector (3-way) -->
+                    <div class="billing-selector-container">
+                        <div class="billing-selector" data-active="monthly" id="billing-selector-control">
+                            <button type="button" class="billing-opt active" data-billing="monthly" id="opt-monthly">Mensual</button>
+                            <button type="button" class="billing-opt" data-billing="quarterly" id="opt-quarterly">
+                                Trimestral <span class="badge-discount">-15%</span>
+                            </button>
+                            <button type="button" class="billing-opt" data-billing="yearly" id="opt-yearly">
+                                Anual <span class="badge-discount">-40%</span>
+                            </button>
+                            <div class="selector-bg"></div>
+                        </div>
                     </div>
                 </div>
                 
@@ -575,120 +580,142 @@
                     <!-- Starter Plan -->
                     <div class="pricing-card" id="pricing-card-starter">
                         <div class="pricing-card-header">
+                            <div class="pricing-icon-wrapper">
+                                <span class="pricing-icon">🏪</span>
+                            </div>
                             <h3>Starter</h3>
                             <p class="pricing-desc">Perfecto para negocios locales que inician su primer programa digital.</p>
                             <div class="price-container">
                                 <span class="currency">$</span>
-                                <span class="price-value" id="price-starter">299</span>
+                                <span class="price-value" id="price-starter">1,299</span>
                                 <span class="period" id="period-starter">/mes</span>
                             </div>
                             <span class="price-yearly-sub text-muted" id="sub-starter">Facturado mensualmente</span>
                         </div>
                         <div class="pricing-card-body">
+                            <h4 class="features-title">Beneficios:</h4>
                             <ul class="pricing-features">
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    Hasta 150 clientes registrados
+                                    <span class="feature-arrow">→</span>
+                                    1 tipo de tarjeta activa
                                 </li>
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    1 Sucursal
+                                    <span class="feature-arrow">→</span>
+                                    1 geo-localización
                                 </li>
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    Diseño de tarjeta personalizado
+                                    <span class="feature-arrow">∞</span>
+                                    Tarjetas digitales ilimitadas
                                 </li>
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    QR de auto-registro en PDF
+                                    <span class="feature-arrow">∞</span>
+                                    Notificaciones Push ilimitadas
                                 </li>
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    Soporte por correo electrónico
+                                    <span class="feature-arrow">✓</span>
+                                    1 sesión de Inducción para ti y tu equipo
                                 </li>
                             </ul>
-                            <a href="https://api.leadconnectorhq.com/widget/booking/SB91q5vL8S4HTWBiVqYM" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-block" id="btn-pricing-starter">Iniciar Prueba Gratis</a>
+                            <a href="https://app.rekucard.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-block btn-pricing-start-trial" id="btn-pricing-starter">Regístrate para prueba gratis</a>
                         </div>
                     </div>
 
-                    <!-- Growth Plan (Popular) -->
-                    <div class="pricing-card popular" id="pricing-card-growth">
+                    <!-- Grow Plan (Popular) -->
+                    <div class="pricing-card popular" id="pricing-card-grow">
                         <div class="popular-badge">EL MÁS POPULAR</div>
                         <div class="pricing-card-header">
-                            <h3>Growth</h3>
+                            <div class="pricing-icon-wrapper">
+                                <span class="pricing-icon">🚀</span>
+                            </div>
+                            <h3>Grow</h3>
                             <p class="pricing-desc">Para negocios en crecimiento que quieren automatizar su retención.</p>
                             <div class="price-container">
                                 <span class="currency">$</span>
-                                <span class="price-value" id="price-growth">599</span>
-                                <span class="period" id="period-growth">/mes</span>
+                                <span class="price-value" id="price-grow">1,899</span>
+                                <span class="period" id="period-grow">/mes</span>
                             </div>
-                            <span class="price-yearly-sub text-muted" id="sub-growth">Facturado mensualmente</span>
+                            <span class="price-yearly-sub text-muted" id="sub-grow">Facturado mensualmente</span>
                         </div>
                         <div class="pricing-card-body">
+                            <h4 class="features-title">Beneficios:</h4>
                             <ul class="pricing-features">
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    <strong>Clientes ilimitados</strong>
+                                    <span class="feature-arrow">→</span>
+                                    3 tipos de tarjetas activas
                                 </li>
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    Hasta 3 sucursales
+                                    <span class="feature-arrow">→</span>
+                                    3 geo-localizaciones
                                 </li>
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    <strong>Notificaciones Push ilimitadas</strong>
+                                    <span class="feature-arrow">→</span>
+                                    Programa de Referidos
                                 </li>
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    Dashboard de analíticas en tiempo real
+                                    <span class="feature-arrow">∞</span>
+                                    Tarjetas digitales ilimitadas
                                 </li>
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    Notificaciones de proximidad (GPS)
+                                    <span class="feature-arrow">∞</span>
+                                    Notificaciones Push ilimitadas
                                 </li>
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    Soporte prioritario por WhatsApp
+                                    <span class="feature-arrow">✓</span>
+                                    1 sesión de Inducción para ti y tu equipo
                                 </li>
                             </ul>
-                            <a href="https://api.leadconnectorhq.com/widget/booking/SB91q5vL8S4HTWBiVqYM" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" id="btn-pricing-growth">Iniciar Prueba Gratis</a>
+                            <a href="https://app.rekucard.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block btn-pricing-start-trial" id="btn-pricing-grow">Regístrate para prueba gratis</a>
                         </div>
                     </div>
 
-                    <!-- Enterprise Plan -->
-                    <div class="pricing-card" id="pricing-card-enterprise">
+                    <!-- Business Plan -->
+                    <div class="pricing-card" id="pricing-card-business">
                         <div class="pricing-card-header">
-                            <h3>Enterprise</h3>
-                            <p class="pricing-desc">Para franquicias o marcas con múltiples sucursales e integraciones POS.</p>
-                            <div class="price-container">
-                                <span class="price-custom">A Medida</span>
+                            <div class="pricing-icon-wrapper">
+                                <span class="pricing-icon">🌐</span>
                             </div>
-                            <span class="price-yearly-sub text-muted" id="sub-enterprise">Cotización personalizada</span>
+                            <h3>Business</h3>
+                            <p class="pricing-desc">Para marcas y franquicias que buscan integraciones avanzadas y múltiples sucursales.</p>
+                            <div class="price-container">
+                                <span class="currency">$</span>
+                                <span class="price-value" id="price-business">3,499</span>
+                                <span class="period" id="period-business">/mes</span>
+                            </div>
+                            <span class="price-yearly-sub text-muted" id="sub-business">Facturado mensualmente</span>
                         </div>
                         <div class="pricing-card-body">
+                            <h4 class="features-title">Beneficios:</h4>
                             <ul class="pricing-features">
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    Sucursales ilimitadas
+                                    <span class="feature-arrow">→</span>
+                                    10 tipos de tarjetas activas
                                 </li>
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    Integración directa con tu sistema POS/Caja
+                                    <span class="feature-arrow">→</span>
+                                    10 geo-localizaciones
                                 </li>
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    API para desarrolladores
+                                    <span class="feature-arrow">→</span>
+                                    Programa de Referidos
                                 </li>
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    Gerente de cuenta exclusivo
+                                    <span class="feature-arrow">→</span>
+                                    Integraciones API
                                 </li>
                                 <li>
-                                    <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    Contrato y facturación formal local
+                                    <span class="feature-arrow">∞</span>
+                                    Tarjetas digitales ilimitadas
+                                </li>
+                                <li>
+                                    <span class="feature-arrow">∞</span>
+                                    Notificaciones Push ilimitadas
+                                </li>
+                                <li>
+                                    <span class="feature-arrow">✓</span>
+                                    4 sesiones de Inducción para ti y tu equipo
                                 </li>
                             </ul>
-                            <a href="https://api.leadconnectorhq.com/widget/booking/SB91q5vL8S4HTWBiVqYM" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-block" id="btn-pricing-enterprise">Agendar Demo</a>
+                            <a href="https://app.rekucard.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-block btn-pricing-start-trial" id="btn-pricing-business">Regístrate para prueba gratis</a>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,180 @@
+/*
+  Archivo: pricing.css
+  Descripción: Estilos premium para el selector segmentado de facturación de 3 posiciones (Mensual, Trimestral y Anual), las nuevas tarjetas de precios Starter, Grow y Business, y el listado de beneficios estratégicos de Reku.
+  Fecha de última modificación: 2026-06-23
+  Autor: Antigravity
+*/
+
+/* Ocultar el toggle switch antiguo de 2 posiciones */
+.billing-toggle {
+    display: none !important;
+}
+
+/* Contenedor del selector segmentado trilateral */
+.billing-selector-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+    margin-bottom: 40px;
+}
+
+/* Barra del selector segmentado con efecto de cristal (glassmorphism) */
+.billing-selector {
+    position: relative;
+    display: flex;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    padding: 5px;
+    border-radius: 35px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    width: 100%;
+    max-width: 520px;
+    z-index: 1;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Botones de opciones (Mensual, Trimestral, Anual) */
+.billing-opt {
+    position: relative;
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 12px 18px;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    z-index: 2;
+    transition: color var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    outline: none;
+}
+
+.billing-opt:hover {
+    color: var(--color-text-light);
+}
+
+.billing-opt.active {
+    color: var(--color-text-light);
+}
+
+/* Badge de descuento para Trimestral y Anual */
+.badge-discount {
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 20px;
+    letter-spacing: 0;
+    box-shadow: 0 2px 8px var(--color-primary-glow);
+    text-transform: uppercase;
+}
+
+/* Fondo deslizante indicador de la opción activa */
+.selector-bg {
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    width: calc(33.333% - 6.666px);
+    background: var(--color-primary);
+    border-radius: 30px;
+    z-index: 1;
+    transition: transform var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px var(--color-primary-glow);
+}
+
+/* Transiciones del fondo según el botón seleccionado */
+.billing-selector[data-active="monthly"] .selector-bg {
+    transform: translateX(0);
+}
+
+.billing-selector[data-active="quarterly"] .selector-bg {
+    transform: translateX(100%);
+}
+
+.billing-selector[data-active="yearly"] .selector-bg {
+    transform: translateX(200%);
+}
+
+/* Icono decorativo premium de cada tarjeta de plan */
+.pricing-icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: rgba(251, 66, 10, 0.08);
+    border: 1px solid rgba(251, 66, 10, 0.18);
+    border-radius: 14px;
+    margin-bottom: 24px;
+    transition: transform var(--transition-fast) ease-out;
+}
+
+.pricing-card:hover .pricing-icon-wrapper {
+    transform: scale(1.1) rotate(4deg);
+}
+
+.pricing-icon {
+    font-size: 1.75rem;
+}
+
+/* Título de la lista de beneficios */
+.features-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-light);
+    margin-top: 8px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Modificaciones de la lista de beneficios */
+.pricing-features {
+    gap: 14px !important;
+}
+
+.pricing-features li {
+    font-size: 0.92rem !important;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    line-height: 1.4;
+}
+
+/* Viñetas personalizadas y elegantes */
+.feature-arrow {
+    color: var(--color-primary);
+    font-weight: 800;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    width: 16px;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Adaptabilidad para móviles */
+@media (max-width: 768px) {
+    .billing-selector {
+        max-width: 100%;
+    }
+    
+    .billing-opt {
+        font-size: 0.85rem;
+        padding: 10px 8px;
+        gap: 4px;
+    }
+    
+    .badge-discount {
+        font-size: 0.6rem;
+        padding: 2px 4px;
+    }
+}

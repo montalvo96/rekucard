@@ -5,11 +5,17 @@
   Autor: Antigravity
 */
 
+// Carga dinámica de la hoja de estilos pricing.css
+const pricingStyleLink = document.createElement('link');
+pricingStyleLink.rel = 'stylesheet';
+pricingStyleLink.href = 'pricing.css';
+document.head.appendChild(pricingStyleLink);
+
 document.addEventListener('DOMContentLoaded', () => {
     initMobileNav();
     initHeroTilt();
     initSimulator();
-    initPricingToggle();
+    initPricingSelector();
     initIndustryTabs();
     initFaqAccordion();
     initScrollReveal();
@@ -214,65 +220,65 @@ function initSimulator() {
 }
 
 /* ==========================================================================
-   4. SWITCH DE FACTURACIÓN Y PRECIOS
+   4. CONTROL DE PRECIOS Y FACTURACIÓN (3 POSICIONES)
    ========================================================================== */
-function initPricingToggle() {
-    const toggleBtn = document.getElementById('btn-billing-toggle');
+function initPricingSelector() {
+    const selectorControl = document.getElementById('billing-selector-control');
+    const opts = document.querySelectorAll('.billing-opt');
+    
     const priceStarter = document.getElementById('price-starter');
-    const priceGrowth = document.getElementById('price-growth');
-    const periodStarter = document.getElementById('period-starter');
-    const periodGrowth = document.getElementById('period-growth');
+    const priceGrow = document.getElementById('price-grow');
+    const priceBusiness = document.getElementById('price-business');
+    
     const subStarter = document.getElementById('sub-starter');
-    const subGrowth = document.getElementById('sub-growth');
-    const labelMonthly = document.getElementById('label-billing-monthly');
-    const labelYearly = document.getElementById('label-billing-yearly');
+    const subGrow = document.getElementById('sub-grow');
+    const subBusiness = document.getElementById('sub-business');
 
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', () => {
-            const isYearly = toggleBtn.getAttribute('aria-checked') === 'true';
-            
-            // Alternar estado
-            toggleBtn.setAttribute('aria-checked', !isYearly);
-            
-            if (!isYearly) {
-                // Cambiar a Anual (Ahorro 20%)
-                // Starter: $299/mes -> $239/mes
-                // Growth: $599/mes -> $479/mes
-                animatePrice(priceStarter, 239);
-                animatePrice(priceGrowth, 479);
+    if (selectorControl && opts.length > 0) {
+        opts.forEach(opt => {
+            opt.addEventListener('click', () => {
+                // Quitar clase activa de todos y añadirla al seleccionado
+                opts.forEach(o => o.classList.remove('active'));
+                opt.classList.add('active');
                 
-                periodStarter.textContent = '/mes';
-                periodGrowth.textContent = '/mes';
-                subStarter.textContent = 'Facturado anualmente ($2,868 MXN/año)';
-                subGrowth.textContent = 'Facturado anualmente ($5,748 MXN/año)';
+                const billingType = opt.getAttribute('data-billing');
+                selectorControl.setAttribute('data-active', billingType);
                 
-                labelYearly.classList.add('gradient-text');
-                labelMonthly.classList.remove('gradient-text');
-                labelMonthly.classList.add('text-muted');
-                labelYearly.classList.remove('text-muted');
-            } else {
-                // Cambiar a Mensual
-                animatePrice(priceStarter, 299);
-                animatePrice(priceGrowth, 599);
-                
-                periodStarter.textContent = '/mes';
-                periodGrowth.textContent = '/mes';
-                subStarter.textContent = 'Facturado mensualmente';
-                subGrowth.textContent = 'Facturado mensualmente';
-                
-                labelMonthly.classList.add('gradient-text');
-                labelYearly.classList.remove('gradient-text');
-                labelYearly.classList.add('text-muted');
-                labelMonthly.classList.remove('text-muted');
-            }
+                if (billingType === 'monthly') {
+                    animatePrice(priceStarter, 1299);
+                    animatePrice(priceGrow, 1899);
+                    animatePrice(priceBusiness, 3499);
+                    
+                    subStarter.textContent = 'Facturado mensualmente';
+                    subGrow.textContent = 'Facturado mensualmente';
+                    subBusiness.textContent = 'Facturado mensualmente';
+                } else if (billingType === 'quarterly') {
+                    animatePrice(priceStarter, 1104);
+                    animatePrice(priceGrow, 1614);
+                    animatePrice(priceBusiness, 2974);
+                    
+                    subStarter.textContent = 'Facturado trimestralmente ($3,312 MXN/trimestre)';
+                    subGrow.textContent = 'Facturado trimestralmente ($4,842 MXN/trimestre)';
+                    subBusiness.textContent = 'Facturado trimestralmente ($8,922 MXN/trimestre)';
+                } else if (billingType === 'yearly') {
+                    animatePrice(priceStarter, 779);
+                    animatePrice(priceGrow, 1139);
+                    animatePrice(priceBusiness, 2099);
+                    
+                    subStarter.textContent = 'Facturado anualmente ($9,348 MXN/año)';
+                    subGrow.textContent = 'Facturado anualmente ($13,668 MXN/año)';
+                    subBusiness.textContent = 'Facturado anualmente ($25,188 MXN/año)';
+                }
+            });
         });
     }
 }
 
-// Animación numérica suave para el cambio de precios
+// Animación numérica suave para el cambio de precios (soporta formato con comas de miles)
 function animatePrice(element, targetValue) {
-    let start = parseInt(element.textContent, 10);
-    const duration = 200; // ms
+    if (!element) return;
+    let start = parseInt(element.textContent.replace(/,/g, ''), 10) || 0;
+    const duration = 250; // ms
     const startTime = performance.now();
 
     function update(currentTime) {
@@ -281,7 +287,9 @@ function animatePrice(element, targetValue) {
         
         // Interpolación lineal
         const currentVal = Math.round(start + (targetValue - start) * progress);
-        element.textContent = currentVal;
+        
+        // Formatear con comas
+        element.textContent = currentVal.toLocaleString('es-MX');
 
         if (progress < 1) {
             requestAnimationFrame(update);
