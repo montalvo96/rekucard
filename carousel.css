@@ -1,6 +1,6 @@
 /*
   Archivo: carousel.css
-  Descripción: Estilos premium, responsivos y con animaciones para el carrusel de tarjetas de lealtad reales (Stamps, Cashback, Gift, Membership, Coupon) en Reku.
+  Descripción: Estilos premium, responsivos y con animaciones para el carrusel de tarjetas de lealtad reales (Stamps, Cashback, Gift, Membership, Coupon) en Reku. Se optimizó para transparentar las cajas oscuras y el fondo del mockup de celular, logrando siluetas limpias y sombras orgánicas.
   Fecha de última modificación: 2026-06-25
   Autor: Antigravity
 */
@@ -31,18 +31,18 @@
     will-change: transform;
 }
 
-/* Tarjeta individual del carrusel */
+/* Tarjeta individual del carrusel (Fondo transparente para integrarse con la sección) */
 .carousel-card {
     flex: 0 0 calc(33.333% - 20px);
-    background-color: var(--color-dark-card);
-    border: 1px solid var(--glass-border);
+    background-color: transparent;
+    border: 1px solid transparent;
     border-radius: var(--radius-lg);
     padding: 32px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    box-shadow: var(--shadow-md);
+    box-shadow: none;
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
@@ -50,11 +50,16 @@
 
 .carousel-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(251, 66, 10, 0.4);
-    box-shadow: 0 20px 40px rgba(251, 66, 10, 0.12);
+    background-color: rgba(255, 255, 255, 0.015);
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Contenedor del mockup de celular */
+.carousel-card:hover .card-type-title {
+    color: var(--color-primary);
+}
+
+/* Contenedor del mockup de celular (Fondo transparente para silueta limpia del PNG) */
 .carousel-mockup-wrapper {
     width: 100%;
     max-width: 200px;
@@ -62,11 +67,12 @@
     margin: 0 auto 24px;
     border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    transition: transform var(--transition-normal), filter var(--transition-normal);
     position: relative;
-    background-color: #000;
+    background-color: transparent;
     aspect-ratio: 360 / 690;
+    /* Sombra orgánica siguiendo la silueta del celular en vez de caja rectangular */
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.6));
 }
 
 /* Imagen del mockup */
@@ -77,10 +83,10 @@
     display: block;
 }
 
-/* Efecto hover sobre el mockup al pasar sobre la tarjeta */
+/* Efecto hover sobre el mockup (Zoom y brillo temático Reku en la sombra) */
 .carousel-card:hover .carousel-mockup-wrapper {
     transform: scale(1.04) translateY(-4px);
-    box-shadow: 0 15px 35px rgba(251, 66, 10, 0.25);
+    filter: drop-shadow(0 16px 30px rgba(251, 66, 10, 0.35));
 }
 
 /* Info del Tipo de Tarjeta */
