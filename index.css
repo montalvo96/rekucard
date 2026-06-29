@@ -1784,3 +1784,130 @@ body {
         max-width: 320px;
     }
 }
+
+/* ==========================================================================
+   17. LO QUE REKU HACE POR TU NEGOCIO (Fidelopass Adaptation)
+   ========================================================================== */
+.features-overview-section {
+    padding: 100px 0;
+    background-color: var(--color-dark-surface);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.features-overview-section .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-text-light);
+    letter-spacing: -1px;
+    margin-bottom: 0;
+}
+
+.title-divider-line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--glass-border);
+    margin: 32px 0 48px;
+}
+
+.features-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 50px;
+}
+
+.feature-overview-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.feature-overview-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(251, 66, 10, 0.3);
+    box-shadow: 0 15px 30px rgba(251, 66, 10, 0.08);
+}
+
+.feature-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(251, 66, 10, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    transition: all var(--transition-normal);
+}
+
+.feature-overview-card:hover .feature-icon-wrapper {
+    background: rgba(251, 66, 10, 0.2);
+    transform: scale(1.1);
+}
+
+.feature-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.feature-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-light);
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.feature-card-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.features-overview-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-demo-wide {
+    padding: 16px 48px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    border-radius: 50px;
+}
+
+/* Responsividad para la nueva sección */
+@media (max-width: 1024px) {
+    .features-overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .features-overview-section .section-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .features-overview-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .feature-overview-card {
+        padding: 32px 20px;
+    }
+}
+
