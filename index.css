@@ -1,7 +1,7 @@
 /*
   Archivo: index.css
   Descripción: Hoja de estilos principal para la landing page de Reku. Implementa el sistema de diseño (variables HSL, glassmorphism, gradientes modernos y animaciones premium) y estilos responsivos.
-  Fecha de última modificación: 2026-06-03
+  Fecha de última modificación: 2026-06-29
   Autor: Antigravity
 */
 
@@ -348,6 +348,46 @@ body {
     grid-template-columns: 1.1fr 0.9fr;
     gap: 60px;
     align-items: center;
+}
+
+.hero-container-centered {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-container-centered .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+@media (min-width: 1025px) {
+    .hero-container-centered .hero-title {
+        font-size: 4rem;
+        max-width: 900px;
+    }
+}
+
+.hero-container-centered .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 720px;
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+.hero-container-centered .hero-actions {
+    justify-content: center;
+}
+
+.hero-container-centered .hero-social-proof {
+    justify-content: center;
 }
 
 .hero-title {
