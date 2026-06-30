@@ -1,7 +1,7 @@
 /*
   Archivo: app.js
-  Descripción: Lógica de interactividad para la landing page de Reku. Controla el simulador de tarjeta Wallet interactivo en tiempo real, el switch de precios, la selección de industrias, el acordeón de FAQs y animaciones premium como el efecto 3D tilt, y el carrusel de tarjetas con autoplay y loop infinito.
-  Fecha de última modificación: 2026-06-24
+  Descripción: Lógica de interactividad para la landing page de Reku. Controla el simulador de tarjeta Wallet interactivo en tiempo real, el switch de precios, la selección de industrias, el acordeón de FAQs y animaciones premium como el efecto 3D tilt. Se removió la lógica de carrusel al transicionar a la cuadrícula de versatilidad.
+  Fecha de última modificación: 2026-06-29
   Autor: Antigravity
 */
 
@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroTilt();
     initSimulator();
     initPricingSelector();
-    initCardsCarousel();
     initIndustryTabs();
     initFaqAccordion();
     initScrollReveal();
@@ -387,12 +386,12 @@ function initScrollReveal() {
     }, observerOptions);
 
     // Añadir clase inicial y observar secciones/cards
-    const itemsToReveal = document.querySelectorAll('.step-card, .comparison-card, .tab-pane-grid, .pricing-card, .faq-item');
+    const itemsToReveal = document.querySelectorAll('.step-card, .comparison-card, .tab-pane-grid, .pricing-card, .faq-item, .versatility-card');
     
     // Definir estilos dinámicos de revelación
     const style = document.createElement('style');
     style.textContent = `
-        .step-card, .comparison-card, .tab-pane-grid, .pricing-card, .faq-item {
+        .step-card, .comparison-card, .tab-pane-grid, .pricing-card, .faq-item, .versatility-card {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
@@ -411,152 +410,4 @@ function initScrollReveal() {
 }
 
 
-/* ==========================================================================
-   8. CARRUSEL INTERACTIVO DE TIPOS DE TARJETAS (MISMO LASSO)
-   ========================================================================== */
-function initCardsCarousel() {
-    const track = document.getElementById('carousel-track-cards');
-    const cards = document.querySelectorAll('.carousel-card');
-    const btnPrev = document.getElementById('btn-carousel-prev');
-    const btnNext = document.getElementById('btn-carousel-next');
-    const dotsContainer = document.getElementById('carousel-dots-cards');
-    const carouselContainer = document.querySelector('.carousel-container');
 
-    if (!track || cards.length === 0) return;
-
-    let currentIndex = 0;
-    let cardsPerView = getCardsPerView();
-    let autoplayInterval = null;
-    const autoplayDelay = 3500; // 3.5 segundos por slide
-
-    function getCardsPerView() {
-        if (window.innerWidth <= 768) return 1;
-        if (window.innerWidth <= 1024) return 2;
-        return 3;
-    }
-
-    function renderDots() {
-        if (!dotsContainer) return;
-        dotsContainer.innerHTML = '';
-        const viewsCount = Math.max(1, cards.length - cardsPerView + 1);
-        for (let i = 0; i < viewsCount; i++) {
-            const dot = document.createElement('button');
-            dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
-            dot.setAttribute('aria-label', `Ir a la diapositiva ${i + 1}`);
-            dot.addEventListener('click', () => {
-                goToSlide(i);
-                startAutoplay(); // Reiniciar autoplay al interactuar manualmente
-            });
-            dotsContainer.appendChild(dot);
-        }
-    }
-
-    function updateCarousel() {
-        cardsPerView = getCardsPerView();
-        const viewsCount = Math.max(1, cards.length - cardsPerView + 1);
-        
-        // Ajustar el índice si excede los límites por cambio de tamaño de pantalla
-        if (currentIndex >= viewsCount) {
-            currentIndex = viewsCount - 1;
-        }
-        if (currentIndex < 0) {
-            currentIndex = 0;
-        }
-
-        const cardWidth = cards[0].getBoundingClientRect().width;
-        const gap = 30; // Correspondiente al gap del CSS
-        const offset = currentIndex * (cardWidth + gap);
-        
-        track.style.transform = `translateX(-${offset}px)`;
-
-        // Actualizar dots
-        if (dotsContainer) {
-            const dots = dotsContainer.querySelectorAll('.carousel-dot');
-            dots.forEach((dot, idx) => {
-                if (idx === currentIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }
-    }
-
-    function goToSlide(index) {
-        currentIndex = index;
-        updateCarousel();
-    }
-
-    function handlePrev() {
-        const viewsCount = Math.max(1, cards.length - cardsPerView + 1);
-        if (currentIndex > 0) {
-            currentIndex--;
-        } else {
-            currentIndex = viewsCount - 1; // Volver al final
-        }
-        updateCarousel();
-        startAutoplay(); // Reiniciar autoplay al interactuar manualmente
-    }
-
-    function handleNext() {
-        const viewsCount = Math.max(1, cards.length - cardsPerView + 1);
-        if (currentIndex < viewsCount - 1) {
-            currentIndex++;
-        } else {
-            currentIndex = 0; // Volver al inicio
-        }
-        updateCarousel();
-        startAutoplay(); // Reiniciar autoplay al interactuar manualmente
-    }
-
-    if (btnPrev) {
-        btnPrev.addEventListener('click', handlePrev);
-    }
-
-    if (btnNext) {
-        btnNext.addEventListener('click', handleNext);
-    }
-
-    // Funciones de control de Autoplay
-    function startAutoplay() {
-        stopAutoplay();
-        autoplayInterval = setInterval(() => {
-            const viewsCount = Math.max(1, cards.length - cardsPerView + 1);
-            if (viewsCount > 1) {
-                if (currentIndex < viewsCount - 1) {
-                    currentIndex++;
-                } else {
-                    currentIndex = 0;
-                }
-                updateCarousel();
-            }
-        }, autoplayDelay);
-    }
-
-    function stopAutoplay() {
-        if (autoplayInterval) {
-            clearInterval(autoplayInterval);
-        }
-    }
-
-    // Pausar autoplay al hacer hover en el contenedor
-    if (carouselContainer) {
-        carouselContainer.addEventListener('mouseenter', stopAutoplay);
-        carouselContainer.addEventListener('mouseleave', startAutoplay);
-    }
-
-    // Escuchar el cambio de tamaño de la ventana
-    window.addEventListener('resize', () => {
-        const oldCardsPerView = cardsPerView;
-        cardsPerView = getCardsPerView();
-        if (oldCardsPerView !== cardsPerView) {
-            renderDots();
-        }
-        updateCarousel();
-    });
-
-    // Inicializar carrusel y autoplay
-    renderDots();
-    updateCarousel();
-    startAutoplay();
-}

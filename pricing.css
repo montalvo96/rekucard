@@ -1,7 +1,7 @@
 /*
   Archivo: pricing.css
-  Descripción: Estilos premium para el selector segmentado de facturación de 3 posiciones (Mensual, Trimestral y Anual), las nuevas tarjetas de precios Starter, Grow y Business, y el listado de beneficios estratégicos de Reku.
-  Fecha de última modificación: 2026-06-23
+  Descripción: Estilos premium para el selector segmentado de facturación de 3 posiciones (Mensual, Trimestral y Anual), las nuevas tarjetas de precios Starter, Grow y Business, y el listado de beneficios alineados de Reku.
+  Fecha de última modificación: 2026-06-29
   Autor: Antigravity
 */
 
@@ -131,10 +131,34 @@
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--color-text-light);
-    margin-top: 8px;
-    margin-bottom: 18px;
+    margin-top: 0 !important;
+    margin-bottom: 14px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+/* Alineación horizontal de las cabeceras de precio en pantallas grandes */
+@media (min-width: 1025px) {
+    .pricing-card-header {
+        height: 270px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 16px !important;
+    }
+    
+    .pricing-desc {
+        margin-bottom: auto !important;
+    }
+
+    .pricing-card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pricing-card-body .btn {
+        margin-top: auto !important;
+    }
 }
 
 /* Modificaciones de la lista de beneficios */
@@ -145,7 +169,7 @@
 .pricing-features li {
     font-size: 0.92rem !important;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
     line-height: 1.4;
 }
@@ -159,6 +183,7 @@
     width: 16px;
     display: inline-block;
     text-align: center;
+    margin-top: 2px;
 }
 
 /* Adaptabilidad para móviles */

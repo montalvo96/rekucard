@@ -1,218 +1,178 @@
 /*
   Archivo: carousel.css
-  Descripción: Estilos premium, responsivos y con animaciones para el carrusel de tarjetas de lealtad reales (Stamps, Cashback, Gift, Membership, Coupon) en Reku. Se optimizó para transparentar las cajas oscuras y el fondo del mockup de celular, logrando siluetas limpias y sombras orgánicas.
-  Fecha de última modificación: 2026-06-25
+  Descripción: Estilos premium para la sección estática responsiva de versatilidad de tarjetas de Reku, adaptados para soportar 5 columnas de tarjetas (Stamps, Pass, Premios, Cash y Rekupón).
+  Fecha de última modificación: 2026-06-29
   Autor: Antigravity
 */
 
-.cards-carousel-section {
+.versatility-section {
     padding: 100px 0;
     background-color: var(--color-dark-bg);
     position: relative;
     overflow: hidden;
 }
 
-.carousel-container {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
-}
-
-.carousel-track-container {
-    overflow: hidden;
-    width: 100%;
-}
-
-.carousel-track {
+.versatility-container {
     display: flex;
-    gap: 30px;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
 }
 
-/* Tarjeta individual del carrusel (Fondo transparente para integrarse con la sección) */
-.carousel-card {
-    flex: 0 0 calc(33.333% - 20px);
-    background-color: transparent;
-    border: 1px solid transparent;
-    border-radius: var(--radius-lg);
-    padding: 32px 24px;
+/* Columna Izquierda: Texto */
+.versatility-content {
+    flex: 0 0 24%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 120px;
+}
+
+.versatility-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--color-text-light);
+    letter-spacing: -0.5px;
+}
+
+.versatility-description {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+/* Columna Derecha: Cuadrícula de tarjetas */
+.versatility-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+/* Tarjeta individual */
+.versatility-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    box-shadow: none;
     transition: all var(--transition-normal);
-    position: relative;
-    overflow: hidden;
 }
 
-.carousel-card:hover {
-    transform: translateY(-10px);
-    background-color: rgba(255, 255, 255, 0.015);
-    border-color: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.carousel-card:hover .card-type-title {
-    color: var(--color-primary);
-}
-
-/* Contenedor del mockup de celular (Fondo transparente para silueta limpia del PNG) */
-.carousel-mockup-wrapper {
+/* Contenedor del mockup del celular */
+.versatility-mockup-wrapper {
     width: 100%;
-    max-width: 200px;
+    max-width: 140px;
     height: auto;
-    margin: 0 auto 24px;
+    margin: 0 auto 20px;
     border-radius: 18px;
     overflow: hidden;
     transition: transform var(--transition-normal), filter var(--transition-normal);
     position: relative;
     background-color: transparent;
     aspect-ratio: 360 / 690;
-    /* Sombra orgánica siguiendo la silueta del celular en vez de caja rectangular */
     filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.6));
 }
 
-/* Imagen del mockup */
-.carousel-mockup-img {
+.versatility-mockup-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-/* Efecto hover sobre el mockup (Zoom y brillo temático Reku en la sombra) */
-.carousel-card:hover .carousel-mockup-wrapper {
-    transform: scale(1.04) translateY(-4px);
+/* Efecto hover sobre el mockup de celular */
+.versatility-card:hover .versatility-mockup-wrapper {
+    transform: scale(1.05) translateY(-6px);
     filter: drop-shadow(0 16px 30px rgba(251, 66, 10, 0.35));
 }
 
-/* Info del Tipo de Tarjeta */
-.card-type-title {
+.versatility-card-title {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
-    font-weight: 700;
+    font-size: 1.1rem;
+    font-weight: 400;
     color: var(--color-text-light);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    line-height: 1.3;
 }
 
-.card-type-desc {
-    color: var(--color-text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-    line-height: 1.5;
-    min-height: 68px;
-}
-
-.card-type-divider {
-    width: 40px;
-    height: 2px;
-    background-color: var(--color-primary);
-    margin-bottom: 16px;
-    border: none;
-}
-
-.card-type-recommendation {
-    font-size: 0.8rem;
-    color: var(--color-primary);
+.versatility-card-title strong {
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
-/* Botones de navegación del carrusel */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 46px;
-    height: 46px;
-    background: rgba(25, 25, 26, 0.8);
-    border: 1px solid var(--glass-border);
-    border-radius: 50%;
-    color: #ffffff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    transition: all var(--transition-fast);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    outline: none;
-}
-
-.carousel-btn:hover {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
-    color: #ffffff;
-    box-shadow: 0 4px 12px var(--color-primary-glow);
-}
-
-.carousel-btn.prev {
-    left: -15px;
-}
-
-.carousel-btn.next {
-    right: -15px;
-}
-
-.carousel-btn svg {
-    width: 20px;
-    height: 20px;
-}
-
-/* Indicadores de Dots */
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 40px;
-}
-
-.carousel-dot {
-    width: 10px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.15);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    outline: none;
-    padding: 0;
-}
-
-.carousel-dot:hover {
-    background: rgba(255, 255, 255, 0.30);
-}
-
-.carousel-dot.active {
-    background: var(--color-primary);
-    width: 28px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px var(--color-primary-glow);
+.versatility-card-desc {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
 }
 
 /* Responsividad */
 @media (max-width: 1024px) {
-    .carousel-card {
-        flex: 0 0 calc(50% - 15px);
+    .versatility-container {
+        flex-direction: column;
+        gap: 48px;
+    }
+    
+    .versatility-content {
+        flex: none;
+        width: 100%;
+        position: static;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .versatility-title {
+        font-size: 2rem;
+        max-width: 600px;
+    }
+    
+    .versatility-description {
+        max-width: 600px;
+    }
+    
+    .versatility-grid {
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 24px;
+    }
+    
+    .versatility-mockup-wrapper {
+        max-width: 170px;
+    }
+    
+    .versatility-card-title {
+        font-size: 1.15rem;
+    }
+    
+    .versatility-card-desc {
+        font-size: 0.85rem;
     }
 }
 
 @media (max-width: 768px) {
-    .carousel-container {
-        padding: 0 20px;
+    .versatility-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .versatility-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
     }
     
-    .carousel-card {
-        flex: 0 0 100%;
-        padding: 24px;
+    .versatility-mockup-wrapper {
+        max-width: 200px;
     }
     
-    .carousel-btn {
-        display: none;
+    .versatility-card-desc {
+        max-width: 320px;
+        margin: 0 auto;
     }
 }

@@ -1420,7 +1420,7 @@ body {
     font-size: 0.95rem;
     color: var(--color-text-muted);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
 }
 

@@ -1,6 +1,6 @@
 <!--
   Archivo: index.html
-  Descripción: Estructura HTML de la nueva landing page premium de Reku, optimizada para SEO y conversiones. Contiene un simulador interactivo de tarjetas Wallet, comparativa de beneficios, planes de precios transparentes y acordeón de preguntas frecuentes.
+  Descripción: Estructura HTML de la nueva landing page premium de Reku, optimizada para SEO y conversiones. Contiene un simulador interactivo de tarjetas Wallet, sección de versatilidad de tarjetas, comparativa de beneficios, planes de precios transparentes y acordeón de preguntas frecuentes.
   Fecha de última modificación: 2026-06-29
   Autor: Antigravity
 -->
@@ -234,88 +234,64 @@
             </div>
         </section>
 
-        <!-- Cards Carousel Section (6 Types of Loyalty Cards) -->
-        <section class="cards-carousel-section" id="tipos-tarjetas">
-            <div class="container text-center">
-                <div class="section-header text-center">
-                    <span class="section-category">Tipos de Tarjetas</span>
-                    <h2 class="section-title">Elige el formato ideal para tu negocio</h2>
-                    <p class="section-subtitle">Mismas tarjetas que Lasso. 6 modelos estratégicos listos para instalarse en el Wallet de tus clientes.</p>
+        <!-- Loyalty Cards Versatility Section -->
+        <section class="versatility-section" id="tipos-tarjetas">
+            <div class="container versatility-container">
+                <!-- Left side: Main text and heading -->
+                <div class="versatility-content">
+                    <h2 class="versatility-title">DESCUBRE LA PODEROSA VERSATILIDAD DE REKU</h2>
+                    <p class="versatility-description">
+                        Con Reku, tienes acceso a una variedad de programas de fidelización para involucrar y recompensar a tus clientes de una manera sencilla y eficiente.
+                    </p>
                 </div>
-            </div>
-            
-            <div class="carousel-container">
-                <!-- Navigation Buttons -->
-                <button class="carousel-btn prev" id="btn-carousel-prev" aria-label="Tarjeta anterior">
-                    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                </button>
-                <button class="carousel-btn next" id="btn-carousel-next" aria-label="Siguiente tarjeta">
-                    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </button>
                 
-                <div class="carousel-track-container">
-                    <div class="carousel-track" id="carousel-track-cards">
-                        
-                        <!-- 1. Stamps Card -->
-                        <div class="carousel-card">
-                            <div class="carousel-mockup-wrapper">
-                                <img src="brand/reku/MOCKUPS/stamps-card.png" alt="Tarjeta de Sellos - Barbería SP" class="carousel-mockup-img" loading="lazy">
-                            </div>
-                            <h3 class="card-type-title">Tarjeta de Sellos</h3>
-                            <p class="card-type-desc">La clásica tarjeta de sellos digitalizada para incentivar visitas recurrentes. Los clientes acumulan sellos por cada corte de cabello o servicio y desbloquean recompensas exclusivas.</p>
-                            <hr class="card-type-divider">
-                            <span class="card-type-recommendation">Barbería SP &bull; Barberías, Salones</span>
+                <!-- Right side: 4 card columns -->
+                <div class="versatility-grid">
+                    <!-- 1. Reku Stamps -->
+                    <div class="versatility-card">
+                        <div class="versatility-mockup-wrapper">
+                            <img src="brand/reku/MOCKUPS/stamps-card.png" alt="Reku Stamps - Tarjeta de Sellos" class="versatility-mockup-img" loading="lazy">
                         </div>
-
-                        <!-- 2. Cashback Card -->
-                        <div class="carousel-card">
-                            <div class="carousel-mockup-wrapper">
-                                <img src="brand/reku/MOCKUPS/cashback-card.png" alt="Tarjeta de Cashback - Óptica Medina" class="carousel-mockup-img" loading="lazy">
-                            </div>
-                            <h3 class="card-type-title">Monedero Cashback</h3>
-                            <p class="card-type-desc">Monedero electrónico digital que devuelve un porcentaje de cada compra en dinero virtual. Ideal para compras recurrentes de ticket medio-alto, motivando al cliente a regresar.</p>
-                            <hr class="card-type-divider">
-                            <span class="card-type-recommendation">Óptica Medina &bull; Ópticas, Clínicas, Retail</span>
+                        <h3 class="versatility-card-title">Reku <strong>Stamps</strong></h3>
+                        <p class="versatility-card-desc">Desarrolla programas de lealtad basados en sellos, donde tus clientes puedan acumularlos e intercambiarlos por recompensas. Ejemplo: Compra 8 y obtén 1 premio.</p>
+                    </div>
+                    
+                    <!-- 2. Reku Pass -->
+                    <div class="versatility-card">
+                        <div class="versatility-mockup-wrapper">
+                            <img src="brand/reku/MOCKUPS/membership-card.png" alt="Reku Pass - Club de Suscripción" class="versatility-mockup-img" loading="lazy">
                         </div>
-
-                        <!-- 3. Gift/Points Card -->
-                        <div class="carousel-card">
-                            <div class="carousel-mockup-wrapper">
-                                <img src="brand/reku/MOCKUPS/gift-card.png" alt="Tarjeta de Regalo - Petsy" class="carousel-mockup-img" loading="lazy">
-                            </div>
-                            <h3 class="card-type-title">Tarjeta de Regalo y Puntos</h3>
-                            <p class="card-type-desc">Combina la acumulación de puntos por compras y tarjetas de regalo electrónicas cargadas con saldo. Excelente para incentivar compras cruzadas y promociones especiales.</p>
-                            <hr class="card-type-divider">
-                            <span class="card-type-recommendation">Petsy &bull; Tiendas de Mascotas, Veterinarias</span>
+                        <h3 class="versatility-card-title">Reku <strong>Pass</strong></h3>
+                        <p class="versatility-card-desc">Crea plan de suscripción o de ingresos recurrentes logrando ingresos predecibles, garantizando así una relación continua con tus clientes.</p>
+                    </div>
+                    
+                    <!-- 3. Reku Premios -->
+                    <div class="versatility-card">
+                        <div class="versatility-mockup-wrapper">
+                            <img src="brand/reku/MOCKUPS/gift-card.png" alt="Reku Premios - Puntos y Niveles" class="versatility-mockup-img" loading="lazy">
                         </div>
-
-                        <!-- 4. Membership Card -->
-                        <div class="carousel-card">
-                            <div class="carousel-mockup-wrapper">
-                                <img src="brand/reku/MOCKUPS/membership-card.png" alt="Pase de Membresía - ArtHouse" class="carousel-mockup-img" loading="lazy">
-                            </div>
-                            <h3 class="card-type-title">Pase de Membresía</h3>
-                            <p class="card-type-desc">Controla los accesos a eventos, suscripciones de socios recurrentes y vigencias de planes directamente en el monedero digital nativo de Apple y Google de tus miembros.</p>
-                            <hr class="card-type-divider">
-                            <span class="card-type-recommendation">ArtHouse &bull; Coworkings, Gimnasios, Clubs</span>
+                        <h3 class="versatility-card-title">Reku <strong>Premios</strong></h3>
+                        <p class="versatility-card-desc">Implementa programa de fidelización basado en puntos y niveles, incentivando las compras recurrentes. Ejemplo: Gana 1 punto por cada $1 gastado, acumula 500 puntos y canjéalos por premios.</p>
+                    </div>
+                    
+                    <!-- 4. Reku Cash -->
+                    <div class="versatility-card">
+                        <div class="versatility-mockup-wrapper">
+                            <img src="brand/reku/MOCKUPS/cashback-card.png" alt="Reku Cash - Cashback y Reembolsos" class="versatility-mockup-img" loading="lazy">
                         </div>
-
-                        <!-- 5. Coupon Card -->
-                        <div class="carousel-card">
-                            <div class="carousel-mockup-wrapper">
-                                <img src="brand/reku/MOCKUPS/coupon-card.png" alt="Cupones y Descuentos - Chung Mae" class="carousel-mockup-img" loading="lazy">
-                            </div>
-                            <h3 class="card-type-title">Cupones de Uso Único</h3>
-                            <p class="card-type-desc">Cupones y promociones digitales dinámicas para regalos de bienvenida o campañas express de captación rápida en días festivos, con control de redención en tiempo real.</p>
-                            <hr class="card-type-divider">
-                            <span class="card-type-recommendation">Chung Mae &bull; Restaurantes, Cafés, Gastrobares</span>
+                        <h3 class="versatility-card-title">Reku <strong>Cash</strong></h3>
+                        <p class="versatility-card-desc">Crea programas de fidelización basados en reembolsos, ofreciendo beneficios económicos directos a tus clientes con cada compra.</p>
+                    </div>
+                    
+                    <!-- 5. Rekupón -->
+                    <div class="versatility-card">
+                        <div class="versatility-mockup-wrapper">
+                            <img src="brand/reku/MOCKUPS/coupon-card.png" alt="Rekupón - Cupones de Uso Único" class="versatility-mockup-img" loading="lazy">
                         </div>
-
+                        <h3 class="versatility-card-title">Reku<strong>pón</strong></h3>
+                        <p class="versatility-card-desc">Genera cupones de descuento exclusivos para nuevos clientes, incentivando nuevas compras y registros. Ejemplo: Regístrate ahora y obtén un 40 % de descuento.</p>
                     </div>
                 </div>
-                
-                <!-- Dots indicators -->
-                <div class="carousel-dots" id="carousel-dots-cards"></div>
             </div>
         </section>
 
